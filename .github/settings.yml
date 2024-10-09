@@ -1,7 +1,7 @@
 repository:
-  name: nestjs-service-template
-  description: Template for new services based on NestJS with the Best Practices and Ready for Production
-  homepage: github.com/AlbertHernandez/nestjs-service-template
+  name: ms-base
+  description: Darwin Evolution Template for new microservices based on NestJS with the Best Practices and Ready for Production
+  homepage: github.com/juancalderonx/ms-base
   topics: nodejs, template, typescript, nestjs-template, nestjs
   has_wiki: false
   private: false

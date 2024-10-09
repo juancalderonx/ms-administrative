@@ -22,13 +22,21 @@
     "unicorn/prefer-top-level-await": "off",
     "unicorn/prevent-abbreviations": "off",
     "no-console": "warn",
+    "unicorn/no-null": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
     "node/no-missing-import": "off",
     "node/no-unsupported-features/es-syntax": [
       "error",
       { "ignores": ["modules"] }
     ],
     "node/no-unpublished-import": "off",
-    "no-process-exit": "off"
+    "no-process-exit": "off",
+    "node/no-extraneous-import": ["error", {
+      "allowModules": ["fastify"],
+      "resolvePaths": [],
+      "tryExtensions": []
+    }]
   },
   "overrides": [
     {

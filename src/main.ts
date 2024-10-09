@@ -1,4 +1,4 @@
-import { Logger } from "@nestjs/common";
+import { ValidationPipe } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";
 import {
@@ -6,22 +6,45 @@ import {
   NestFastifyApplication,
 } from "@nestjs/platform-fastify";
 
-import { AppModule } from "@/app/app.module";
+import { ErrorResponseNormalizerFilter } from "@/src/app/http-api/response-normalizer/error-response-normalizer.filter";
+import { SuccessResponseNormalizerInterceptor } from "@/src/app/http-api/response-normalizer/success-response-normalizer.interceptor";
+import { API } from "@/src/app/http-api/routes/route.constants";
+
+import { Logger } from "@/shared/logger/domain";
+import { LoggerInterceptor } from "@/shared/logger/infrastructure/logger.interceptor";
+import { NestLoggerService } from "@/shared/logger/infrastructure/nestjs.logger-service";
+
+import { AppModule } from "./app/app.module";
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter(),
+    { bufferLogs: true },
+  );
+  app.useLogger(app.get(NestLoggerService));
+  app.setGlobalPrefix(API);
+
+  app.useGlobalFilters(app.get(ErrorResponseNormalizerFilter));
+  app.useGlobalInterceptors(
+    app.get(LoggerInterceptor),
+    app.get(SuccessResponseNormalizerInterceptor),
+  );
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
   );
 
-  app.setGlobalPrefix("api");
   const configService = app.get(ConfigService);
   const port = configService.get<string>("PORT", "3000");
+  const logger = app.get(Logger);
 
   await app.listen(port, "0.0.0.0");
 
-  const logger = app.get(Logger);
-  logger.log(`App is ready and listening on port ${port} 🚀`);
+  logger.info(`App is ready and listening on port ${port}`);
 }
 
 bootstrap().catch(handleError);
@@ -29,6 +52,7 @@ bootstrap().catch(handleError);
 function handleError(error: unknown) {
   // eslint-disable-next-line no-console
   console.error(error);
+
   // eslint-disable-next-line unicorn/no-process-exit
   process.exit(1);
 }
