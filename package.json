@@ -2,16 +2,16 @@
   "name": "nestjs-service-template",
   "version": "1.0.0",
   "description": "Template for new nestjs services",
-  "author": "alberthernandezdev@gmail.com",
+  "author": "juanescalderon12@gmail.com",
   "license": "MIT",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/AlbertHernandez/nestjs-service-template/issues"
+    "url": "https://github.com/juancalderonx/base-microservice/issues"
   },
-  "homepage": "https://github.com/AlbertHernandez/nestjs-service-template#readme",
+  "homepage": "https://github.com/juancalderonx/base-microservice#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlbertHernandez/nestjs-service-template.git"
+    "url": "git+https://github.com/juancalderonx/base-microservice.git"
   },
   "keywords": [
     "typescript",
