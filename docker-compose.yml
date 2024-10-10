@@ -56,5 +56,5 @@ services:
     command: [
       "run",
       "--out", "web-dashboard",
-      "/tests/performance/contexts/your-context/get-your-context.mjs"
+      "/tests/performance/contexts/companies/get-companies.mjs"
     ]
