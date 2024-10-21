@@ -1,15 +1,39 @@
-## Proposed changes
+```yaml
+name: Pull Request
+about: Submit a Pull Request to improve the project
+title: ""
+labels: "🚀 Pull Request"
+assignees: ""
+```
 
-Describe the big picture of your changes here to communicate to the maintainers why we should accept this pull request. If it fixes a bug or resolves a feature request, be sure to link to that issue.
+# Description
 
-## Checklist
+Please include a summary of the changes and the motivation behind them. Why is this change required? If it fixes an issue, be sure to include the relevant issue number.
 
-_Put an `x` in the boxes that apply. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code._
+**Type of change**
 
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Documentation update
+
+**Related Issues**
+
+Fixes # (issue)
+
+# Checklist
+
+- [ ] I have performed a self-review of my code
+- [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] I have added necessary documentation (if appropriate)
-- [ ] Any dependent changes have been merged and published in downstream modules
+- [ ] New and existing unit tests pass locally with my changes
+- [ ] I have checked that this PR does not introduce any breaking changes
+- [ ] I have updated the documentation (if applicable)
 
-## Further comments
+# Screenshots (if applicable)
 
-If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...
+If this PR includes UI/UX changes, please attach relevant screenshots.
+
+# Additional context
+
+Add any other context about the pull request here.
